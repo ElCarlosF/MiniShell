@@ -1,12 +1,13 @@
-src = minishell.c
-bin = minishell
+#==========================================
+#    Makefile: makefile for sl 5.1
+#	Copyright 1993, 1998, 2014
+#                 Toyoda Masashi
+#		  (mtoyoda@acm.org)
+#	Last Modified: 2014/03/31
+#==========================================
 
-compilar:
-	gcc $(src) -o $(bin)
+CC=gcc
+CFLAGS=-O
 
-minishell:
-	gcc minishell.c
-
-clear:
-	rm *.o
-	rm $(bin)
+sl: sl.c sl.h MiniShell.c g.h
+	$(CC) $(CFLAGS) -o MiniShell MiniShell.c sl.c -lncurses
